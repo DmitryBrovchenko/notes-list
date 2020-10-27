@@ -1,5 +1,5 @@
 import { Note } from '../../interfaces/note.interface';
-import { Action, createReducer, on } from '@ngrx/store';
+import { Action, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
 import { loadNotesSuccessful, updateFilter } from './search.actions';
 
 export interface SearchState {
@@ -22,3 +22,6 @@ export function searchReducer(state: SearchState | undefined, action: Action ) {
 }
 
 export const searchFeatureKey = 'search';
+
+export const getSearchState = createFeatureSelector<SearchState>(searchFeatureKey);
+export const getNotes = createSelector(getSearchState, (state) => state.notes);

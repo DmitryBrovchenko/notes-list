@@ -5,7 +5,7 @@ import { debounceTime } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
 import { loadNotes, updateFilter } from './@ngrx/search.actions';
 import { Observable } from 'rxjs';
-import { SearchState } from './@ngrx/search.reducer';
+import { getNotes, SearchState } from './@ngrx/search.reducer';
 
 @Component({
   selector: 'app-search',
@@ -15,9 +15,9 @@ import { SearchState } from './@ngrx/search.reducer';
 export class SearchComponent implements OnInit {
   filter: FormControl;
   data$: Observable<Note[]>;
-  constructor(private store: Store<SearchState>) {
+  constructor(private store: Store<any>) {
     this.data$ = store.pipe(
-      select(state => state.notes)
+      select(getNotes)
     )
     ;
   }
