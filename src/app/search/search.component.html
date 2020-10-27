@@ -1,0 +1,3 @@
+<h3> Поиск по заметкам </h3>
+<input type="text" [formControl]="filter" placeholder="Введите текст"/>
+<app-search-grid [data]="data$ | async"></app-search-grid>

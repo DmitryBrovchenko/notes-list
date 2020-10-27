@@ -1,0 +1,9 @@
+<div class="grid">
+  <app-x-card
+    *ngFor="let note of data"
+    [title]="note.title"
+    [content]="note.content"
+    [id]="note.id"
+    (deleteNote)="deleteNote($event)"
+  ></app-x-card>
+</div>

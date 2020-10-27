@@ -1,0 +1,7 @@
+<div class="x-card">
+  <app-x-card-title [title]="title"></app-x-card-title>
+  <app-x-card-content [content]="content"></app-x-card-content>
+  <app-x-card-actions [id]="id" (delete)="deleteNote.emit($event)"></app-x-card-actions>
+</div>
+
+
